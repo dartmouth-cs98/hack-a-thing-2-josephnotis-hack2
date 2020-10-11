@@ -1,0 +1,15 @@
+html {
+  width: 300px;
+}
+
+h1, h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
