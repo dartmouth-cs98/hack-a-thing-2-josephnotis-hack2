@@ -3,8 +3,7 @@
     "version": "0.01",
     "description": "A chrome extension for CS 98 Hack-a-thing 2",
     "permissions": [
-      "activeTab",
-      "declarativeContent",
+      "webNavigation",
       "storage"
     ],
     "background": {
@@ -13,7 +12,7 @@
       ],
       "persistent": false
     },
-    "page_action": {
+    "browser_action": {
       "default_popup": "popup.html",
       "default_icon": {
         "16": "images/get_started16.png",

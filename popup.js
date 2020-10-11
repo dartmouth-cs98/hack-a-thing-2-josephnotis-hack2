@@ -1,15 +1,12 @@
-  let changeColor = document.getElementById('changeColor');
+let counter = document.getElementById('counter');
 
-  chrome.storage.sync.get('color', function(data) {
-    changeColor.style.backgroundColor = data.color;
-    changeColor.setAttribute('value', data.color);
-  });
+chrome.storage.sync.get('count', (data) => {
+  counter.innerHTML = data.count;
+});
 
-changeColor.onclick = function(element) {
-  let color = element.target.value;
-  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-    chrome.tabs.executeScript(
-        tabs[0].id,
-        {code: 'document.body.style.backgroundColor = "' + color + '";'});
-  });
+resetCounter.onclick = () => {
+  counter.innerHTML = 0; // Visibly reset before syncing w/ storage
+  chrome.storage.sync.set({count: 0}, () => {
+    console.log("counter reset");
+  })
 };

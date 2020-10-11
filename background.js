@@ -1,14 +1,17 @@
-  chrome.runtime.onInstalled.addListener(function() {
-    chrome.storage.sync.set({color: '#3aa757'}, function() {
-      console.log('The color is green.');
-    });
-    chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
-      chrome.declarativeContent.onPageChanged.addRules([{
-        conditions: [new chrome.declarativeContent.PageStateMatcher({
-          pageUrl: {hostEquals: 'developer.chrome.com'},
-        })
-        ],
-            actions: [new chrome.declarativeContent.ShowPageAction()]
-      }]);
-    });
+// Initialize the counter
+chrome.runtime.onInstalled.addListener(function() {
+  chrome.storage.sync.set({count: 0}, function() {
+    console.log('Counter Started');
   });
+});
+
+// On a google.com hosted page load
+chrome.webNavigation.onCompleted.addListener(function() {
+  // console.log("I am connected");
+  // Get and increment counter
+  chrome.storage.sync.get('count', (data) => {
+    chrome.storage.sync.set({count: data.count + 1}, () => {
+      console.log("counter updated");
+    })
+  })
+}, {url: [{hostContains: 'google.com'}]});
