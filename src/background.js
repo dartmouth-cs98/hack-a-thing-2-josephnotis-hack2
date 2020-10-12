@@ -11,14 +11,10 @@ chrome.runtime.onInstalled.addListener(() => {
 
 
 let host;
-chrome.runtime.onMessage.addListener((msg, sender, sendReponse) => {
-  if (msg.newHost) {
-    chrome.storage.sync.get('hostURL', (data) => {
-      host = data.hostURL;
-      sendReponse({receivedNewHost: true});
-    });
-  }
+chrome.storage.sync.get('hostURL', (data) => {
+  host = data.hostURL;
 });
+
 // On a google.com hosted page load
 chrome.webNavigation.onCompleted.addListener(function() {
   // console.log("I am connected");
