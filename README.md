@@ -16,6 +16,8 @@ I worked on this hack-a-thing alone.
 
 In the Getting Started Tutorial, I learned about the parts the make up a chrome extension an the basics of how to make one. The tutorial and general [overview](https://developer.chrome.com/extensions/overview) also explained the different ways an extension interacts with the browser and webpages and the core APIs made by Google for extensions.
 
+When building the load counter, I learned more about how Chrome extensions can interact with the sites themselves and what the sites do that users might not always see.
+
 ### How does this hack-a-thing inspire you or relate to your possible project ideas?
 
 My group is looking into building a Chrome extension that analyzes what data is collected on social media. This tutorial provides me with the basic framework of how a chrome extension works. In this hack-a-thing, I started to look at how I can use chrome extensions to read webpage activity.
